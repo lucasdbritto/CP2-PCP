@@ -11,6 +11,8 @@ def definir_taxa(numerodeparcelas):
         return 0.08
     elif 13 <= numerodeparcelas <= 24:
         return 0.1
+    else:
+        return print(f"valor da parcela invalido {numerodeparcelas}")
 
 def calcular_parcela(valor_emprestimo, taxa, numerodeparcelas):
     den = taxa * (1 + taxa) ** numerodeparcelas
@@ -23,6 +25,9 @@ def calcular_total (valorparcela, numerodeparcelas):
 def calcular_juros(valor_total, valor_emprestimo):
     return valor_total - valor_emprestimo
 
+def conversãoparaporc(taxa):
+    return taxa * 100
+
 # ENTRADAS
 nome = input('Digite o nome do cliente: ')
 idade = int(input('Digite a idade do cliente: '))
@@ -33,7 +38,7 @@ numerodeparcelas = int(input('Digite a números de parcelas (de 3 até 24): '))
 # APROVAÇÃO
 if pode_aprovar(idade, renda, valor_emprestimo):
     print("\nRenda e Idade APROVADAS\n")
-    # CALCULOS
+
     taxa = definir_taxa(numerodeparcelas)
 
     valorparcela = calcular_parcela(valor_emprestimo, taxa, numerodeparcelas)
@@ -41,10 +46,12 @@ if pode_aprovar(idade, renda, valor_emprestimo):
     valor_total = calcular_total(valorparcela, numerodeparcelas)
 
     juros = calcular_juros(valor_total, valor_emprestimo)
-    taxaapresentavel = taxa * 100
+
+    taxaporcentagem = conversãoparaporc(taxa)
+
     print(f"Nome do cliente:{nome}")
     print(f"Valor do emprestimo: R${valor_emprestimo:.2f}")
-    print(f"Taxa de juros aplicada: {taxaapresentavel}%")
+    print(f"Taxa de juros aplicada: {taxaporcentagem}%")
     print(f"Valor da parcela: R${valorparcela:.2f}")
     print(f"Valor da total a ser pago: R${valor_total:.2f}")
     print(f"Total de juros pago: R${juros:.2f}")
