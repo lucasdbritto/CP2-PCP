@@ -5,5 +5,5 @@ peso_kg=peso_da_carga*1000
 
 print(f"O peso da carga em quilos é {peso_kg:.0f} kg")
 if peso_da_carga >=10 and peso_da_carga <=20:
-    print()0
+    print()
 
