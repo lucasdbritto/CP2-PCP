@@ -25,7 +25,7 @@ def calcular_total (valorparcela, numerodeparcelas):
 def calcular_juros(valor_total, valor_emprestimo):
     return valor_total - valor_emprestimo
 
-def conversãoparaporc(taxa):
+def conversaoparaporc(taxa):
     return taxa * 100
 
 # ENTRADAS
@@ -47,11 +47,11 @@ if pode_aprovar(idade, renda, valor_emprestimo):
 
     juros = calcular_juros(valor_total, valor_emprestimo)
 
-    taxaporcentagem = conversãoparaporc(taxa)
+    taxaporcentagem = conversaoparaporc(taxa)
 
     print(f"Nome do cliente:{nome}")
     print(f"Valor do emprestimo: R${valor_emprestimo:.2f}")
-    print(f"Taxa de juros aplicada: {taxaporcentagem}%")
+    print(f"Taxa de juros aplicada: {taxaporcentagem:.2f}%")
     print(f"Valor da parcela: R${valorparcela:.2f}")
     print(f"Valor da total a ser pago: R${valor_total:.2f}")
     print(f"Total de juros pago: R${juros:.2f}")
